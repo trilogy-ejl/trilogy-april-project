@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Test name</title>
+    <title>EDLC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
 </head>
+
 <body>
-    
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-padding">
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#">About Us</a></li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                        <!-- <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Item</a></li> -->
+                        <!-- </ul> -->
+                        <!-- </div> -->
+                    </li>
+                    <!-- <li><a href="#">Item</a></li> -->
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="uk-flex uk-flex-center">
+        <div class="uk-position-center uk-overlay uk-overlay-default">
+            <div class="uk-container">
+                <div class="uk-column-1-3">
+
+                    <div id="eat">
+                        <a href="#">
+                            <div class="uk-card uk-card-hover">
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="/assets/images/carminesChicago.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title">Eat in Chicago!</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="drink">
+                        <a href="#">
+                            <div class="uk-card uk-card-hover">
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-bottom">
+                                        <img src="/assets/images/enoChicago.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title">Drink in Chicago!</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="live">
+                        <a href="#">
+                            <div class="uk-card uk-card-hover">
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="/assets/images/tasteOfChicago.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title">Live life in Chicago!</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <video autoplay loop id="video-background" muted plays-inline>
+        <source src="assets/videos/motionplaces0036-c029-q001.mp4" type="video/mp4"></video>
+
+    <script src="assets/javascript/api.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
