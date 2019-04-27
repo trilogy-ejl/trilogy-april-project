@@ -17,7 +17,6 @@ function toCelsius (kelvin){
    url: queryURL,
    method: "GET"
  })
-   // We store all of the retrieved data inside of an object called "response"
    .then(function(response) {
      var cityInfo = response.city;
      var cityForcast = response.list; //This is were each 3 hour instance of up to 5 days stores it's data.
@@ -32,15 +31,42 @@ function toCelsius (kelvin){
 //Weather Weather Map API code ends here
 
 //Zoomato API Start
-var PlacesURL = "https://developers.zomato.com/api/v2.1/search?entity_id=2130%20N%20Damen%20Ave&q=Tacos&count=10";
+$("#Zsubmit").on("click", function(){
+var address;
+var query;
+var radius;
+address = $("#userLocation").val();
+query = $("#foodPref").val();
+radius = 1609.34 * $("#milesPref").val();
+console.log("Address Input is: ")
+console.log(address)
+console.log("Food Pref is:")
+console.log(query);
+console.log("Miles preference is")
+console.log(radius / 1609.34);
+console.log(radius);
+
+var Zurl = "https://developers.zomato.com/api/v2.1/search?entity_id="+ address +"&q="+ query +"&count=10&lat=87.6298&lon=41.8781&radius="+ radius +"&sort=real_distance";
 $.ajax({
-  url: PlacesURL,
+  url: Zurl,
   headers: {'user-key': 'f92328b88e65fe94874fbec64cb80a2a'},
   method: "GET"
 })
-  // We store all of the retrieved data inside of an object called "response"
-  .then(function(Gresponse) {
-   console.log(Gresponse);
-    
+  .then(function(Zresponse) {
+   console.log(Zresponse);
+   var restaurants = Zresponse.restaurants;
+
+  for (var i = 0; i < restaurants.length; i++){
+    console.log(restaurants[i].restaurant.name);
+    console.log(restaurants[i].restaurant.location.address);
+    console.log(restaurants[i].restaurant.location.locality);
+    var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
+    if ( aggregateRating == 0){
+      console.log(restaurants[i].restaurant.user_rating.rating_text);
+    } else{
+      console.log(aggregateRating);
+    }
+  }
   });
+});
 //Zoomato API End
