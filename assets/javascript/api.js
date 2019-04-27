@@ -30,3 +30,17 @@ function toCelsius (kelvin){
      
    });
 //Weather Weather Map API code ends here
+
+//Zoomato API Start
+var PlacesURL = "https://developers.zomato.com/api/v2.1/search?entity_id=2130%20N%20Damen%20Ave&q=Tacos&count=10";
+$.ajax({
+  url: PlacesURL,
+  headers: {'user-key': 'f92328b88e65fe94874fbec64cb80a2a'},
+  method: "GET"
+})
+  // We store all of the retrieved data inside of an object called "response"
+  .then(function(Gresponse) {
+   console.log(Gresponse);
+    
+  });
+//Zoomato API End
