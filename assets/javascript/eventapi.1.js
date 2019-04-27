@@ -1,4 +1,4 @@
-    
+ 
 //  First draft of event api.
 //  Event api is usung Eventbrite.com api   
    
@@ -47,8 +47,3 @@ $("#searchbtn").on("click", function (event) {
 
 
 })
-   
-   
-   
-   
-   
