@@ -30,6 +30,16 @@ function toCelsius (kelvin){
    });
 //Weather Weather Map API code ends here
 
+function createElements (resName, resAddress, resLocality, resRating){
+var row =  $("<tr>");
+row.append($("<td>").text(resName));
+row.append($("<td>").text(resAddress));
+row.append($("<td>").text(resLocality));
+row.append($("<td>").text(resRating));
+$("#Zplaces").append(row);
+}
+
+
 //Zoomato API Start
 $("#Zsubmit").on("click", function(){
 var address;
@@ -57,15 +67,17 @@ $.ajax({
    var restaurants = Zresponse.restaurants;
 
   for (var i = 0; i < restaurants.length; i++){
-    console.log(restaurants[i].restaurant.name);
-    console.log(restaurants[i].restaurant.location.address);
-    console.log(restaurants[i].restaurant.location.locality);
+    var resName = (restaurants[i].restaurant.name);
+    var resAddress = (restaurants[i].restaurant.location.address);
+    var resLocality = (restaurants[i].restaurant.location.locality);
+    var resRating;
     var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
     if ( aggregateRating == 0){
-      console.log(restaurants[i].restaurant.user_rating.rating_text);
+      resRating =  restaurants[i].restaurant.user_rating.rating_text;
     } else{
-      console.log(aggregateRating);
+      resRating = aggregateRating;
     }
+    createElements(resName, resAddress, resLocality, resRating);
   }
   });
 });
