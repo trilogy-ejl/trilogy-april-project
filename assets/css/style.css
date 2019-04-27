@@ -1,4 +1,9 @@
 /* Style sheet for trilogy project */
+
+body {
+    background-color: transparent!important;
+}
+
 #video-background{
     position: fixed;
     right: 0;
@@ -11,7 +16,7 @@
 }
 
 .uk-position-bottom{
-    margin-bottom: 1%;
+    margin: 0, auto;
 }
 
 .uk-navbar-nav>li.uk-active>a {
@@ -28,7 +33,7 @@
 }
 
 #eatInformation, #drinkInformation, #liveInformation{
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     color: black;
 }
 
@@ -40,7 +45,7 @@
   }
 
 #accurateLocation{
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     color: black;
     text-align: center; 
 }
