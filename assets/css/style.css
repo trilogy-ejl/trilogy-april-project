@@ -10,6 +10,10 @@
     z-index: -100;
 }
 
+.uk-position-bottom{
+    margin-bottom: 1%;
+}
+
 .uk-navbar-nav>li.uk-active>a {
     color: #333;
     font-size: x-large;
@@ -21,4 +25,22 @@
     transition: .1s ease-in-out;
     transition-property: color,background-color;
     font-size: xx-large;
+}
+
+#eatInformation, #drinkInformation, #liveInformation{
+    background: rgba(255, 255, 255, 0.1);
+    color: black;
+}
+
+#accurateContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#accurateLocation{
+    background: rgba(255, 255, 255, 0.1);
+    color: black;
+    text-align: center; 
 }
