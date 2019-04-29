@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="assets/javascript/uikit.min.js"></script>
+    <script src="assets/javascript/uikit-icons.min.js"></script>
 </head>
 
 <body>
-    <nav class="uk-navbar-container" uk-navbar>
+    <!-- <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="index.html">Home</a></li>
@@ -21,25 +24,40 @@
                 <li class="uk-active"><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+    <div id="navHover">
+            <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
+                type="button">Menu</button>
+            <div uk-dropdown>
+                <ul class="uk-nav uk-dropdown-nav">
+                    <li class="uk-nav-header">The Menu</li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Comments Board</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#">Usage</a></li>
+                </ul>
+            </div>
+        </div>
     <br>
-    <div class="uk-flex uk-flex-center">
-        <!-- <div class="uk-overlay uk-overlay-default"> -->
-            <div class="container">
+    <div class="uk-position-center">
+        <div class="uk-flex uk-flex-center uk-animation-scale-up">
+            <!-- <div class="uk-overlay uk-overlay-default"> -->
+            <div class="container-fluid">
                 <div class="row">
 
                     <div class="col-10">
                         <div style="overflow-y: scroll; height:500px;">
-                        <button id="Zsubmit" class="uk-button uk-button-default">Submit</button>
-                        <input id="foodPref" class="uk-input" type="text" placeholder="Food">
-                        <div id="eatInformation">
-                          <table id="Zplaces" class="uk-table k-table-divider">
-                                <tr>
-                                <th>Name</th>
-                                <th>Address</th>
-                                <th>Rating</th>
-                                </tr>
-                            </table>
+                            <button id="Zsubmit" class="uk-button uk-button-default">Submit</button>
+                            <input id="foodPref" class="uk-input" type="text" placeholder="Food">
+                            <div id="eatInformation">
+                                <table id="Zplaces" class="uk-table k-table-divider">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

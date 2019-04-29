@@ -19,18 +19,11 @@ body {
     margin: 0, auto;
 }
 
-.uk-navbar-nav>li.uk-active>a {
-    color: #333;
-    font-size: x-large;
+#navHover{
+    margin-left: 1%;
+    margin-top: 1%;
 }
 
-.uk-navbar-nav>li>a {
-    color: #999;
-    text-transform: uppercase;
-    transition: .1s ease-in-out;
-    transition-property: color,background-color;
-    font-size: xx-large;
-}
 
 #eatInformation, #drinkInformation, #liveInformation{
     background: rgba(255, 255, 255, 0.9);
@@ -49,3 +42,4 @@ body {
     color: black;
     text-align: center; 
 }
+

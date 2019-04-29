@@ -7,30 +7,46 @@
     <title>Eat, Drink, Live Chicago!!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="assets/javascript/uikit.min.js"></script>
+    <script src="assets/javascript/uikit-icons.min.js"></script>
 </head>
 
 <body>
-    <nav class="uk-navbar-container" uk-navbar="mode: click">
-        <div class="uk-navbar-left">
+    <!-- <nav class="uk-navbar-container" uk-navbar="mode: click">
+        <div class="uk-navbar-center">
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="#">About Us</a></li>
                 <li class="uk-active"><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+    <div id="navHover">
+        <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right" type="button">Menu</button>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">The Menu</li>
+                <li><a href="contact.html">Comments Board</a></li>
+                <li><a href="">About Us</a></li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="#">Usage</a></li>
+            </ul>
+        </div>
+    </div>
+
     <br>
-    <div class="uk-flex uk-flex-center">
-        <!-- <div class="uk-position-center uk-overlay uk-overlay-default"> -->
+    <div class="uk-position-center">
+        <div class="uk-flex uk-flex-center">
+            <!-- <div class="uk-position-center uk-overlay uk-overlay-default"> -->
             <div class="uk-container">
                 <div class="uk-column-1-3">
 
                     <div id="eat">
                         <a href="eat.html">
-                            <div class="uk-card uk-card-hover">
+                            <div class="uk-card uk-card-hover uk-animation-scale-up uk-transform-origin-bottom-right">
                                 <div class="uk-card uk-card-default">
                                     <div class="uk-card-media-top">
-                                        <img src="/assets/images/carminesChicago.jpg" alt="">
+                                        <img src="assets/images/carminesChicago.jpg">
                                     </div>
                                     <div class="uk-card-body">
                                         <h3 class="uk-card-title">Eat in Chicago!</h3>
@@ -44,10 +60,10 @@
                     </div>
                     <div id="drink">
                         <a href="drink.html">
-                            <div class="uk-card uk-card-hover">
+                            <div class="uk-card uk-card-hover uk-animation-scale-up uk-transform-origin-top-center">
                                 <div class="uk-card uk-card-default">
-                                    <div class="uk-card-media-bottom">
-                                        <img src="/assets/images/enoChicago.jpg" alt="">
+                                    <div class="uk-card-media-top">
+                                        <img src="assets/images/enoChicago.jpg">
                                     </div>
                                     <div class="uk-card-body">
                                         <h3 class="uk-card-title">Drink in Chicago!</h3>
@@ -61,10 +77,10 @@
                     </div>
                     <div id="live">
                         <a href="live.html">
-                            <div class="uk-card uk-card-hover">
+                            <div class="uk-card uk-card-hover uk-animation-scale-up uk-transform-origin-bottom-center">
                                 <div class="uk-card uk-card-default">
                                     <div class="uk-card-media-top">
-                                        <img src="/assets/images/tasteOfChicago.jpg" alt="">
+                                        <img src="assets/images/tasteOfChicago.jpg">
                                     </div>
                                     <div class="uk-card-body">
                                         <h3 class="uk-card-title">Live life in Chicago!</h3>
@@ -84,16 +100,18 @@
         </div>
 
     </div>
-    <div class="uk-position-bottom">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/41d88n87d63/chicago/?unit=us"
-            data-label_1="CHICAGO, IL, USA" data-label_2="WEATHER" data-theme="original"
-            data-basecolor="#00060a">CHICAGO, IL, USA WEATHER</a>
+    <div class="uk-position-bottom uk-animation-scale-up">
+        <div id="weatherWidget">
+            <a class="weatherwidget-io" href="https://forecast7.com/en/41d88n87d63/chicago/?unit=us"
+                data-label_1="CHICAGO, IL, USA" data-label_2="WEATHER" data-theme="original"
+                data-basecolor="#00060a">CHICAGO, IL, USA WEATHER</a>
+        </div>
     </div>
 
-
-    <video autoplay loop id="video-background" muted plays-inline>
-        <source src="assets/videos/motionplaces0036-c029-q001.mp4" type="video/mp4"></video>
-
+    <div class="uk-background-image@m">
+        <video autoplay loop id="video-background" muted plays-inline>
+            <source src="assets/videos/motionplaces0036-c029-q001.mp4" type="video/mp4"></video>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/api.js"></script>
