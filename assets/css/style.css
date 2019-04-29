@@ -4,6 +4,22 @@ body {
     background-color: transparent!important;
 }
 
+.uk-button-primary {
+    background-color: #B4DDF1 !important;
+    color: black !important;
+}
+
+.uk-dropdown {
+    background-color: #B4DDF1 !important;
+    color: black !important;
+}
+
+
+#logo {
+    height: 25%;
+    width: 25%;
+}
+
 #video-background{
     position: fixed;
     right: 0;
@@ -19,7 +35,7 @@ body {
     margin: 0, auto;
 }
 
-#navHover{
+#navButton{
     margin-left: 1%;
     margin-top: 1%;
 }
