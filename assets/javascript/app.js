@@ -28,3 +28,15 @@ function weather() {
   weather();
 
 !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+
+$(document).ready(function() {
+
+  $('.color-choose input').on('click', function() {
+      var shirtColor = $(this).attr('data-image');
+
+      $('.active').removeClass('active');
+      $('.left-column img[data-image = ' + shirtColor + ']').addClass('active');
+      $(this).addClass('active');
+  });
+
+});

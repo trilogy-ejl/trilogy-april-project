@@ -16,68 +16,53 @@
 </head>
 
 <body>
-    <!-- <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="index.html">Home</a></li>
-                <li class="uk-active"><a href="#">About Us</a></li>
-                <li class="uk-active"><a href="contact.html">Contact Us</a></li>
+    <div id="navButton">
+        <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
+            type="button">Menu</button>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">The Menu</li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Comments Board</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="">About Us</a></li>
             </ul>
         </div>
-    </nav> -->
-    <div id="navButton">
-            <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
-                type="button">Menu</button>
-            <div uk-dropdown>
-                <ul class="uk-nav uk-dropdown-nav">
-                    <li class="uk-nav-header">The Menu</li>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="contact.html">Comments Board</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="#">Usage</a></li>
-                </ul>
-            </div>
+    </div>
+    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
+        <div id="logo">
+            <img src="assets/images/EDLC Logo.png" alt="EDLC">
         </div>
-        <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
-                <div id="logo">
-                        <img src="assets/images/EDLC Logo.png" alt="EDLC">
+    </div>
+    <br>
+    <div class="uk-container uk-container-expand">
+        <div class="uk-animation-scale-up">
+            <div class="uk-grid">
+                <div class="uk-width-2-3" uk-overflow-hidden>
+                    <button id="Zsubmit" class="uk-button uk-button-default">Submit</button>
+                    <input id="foodPref" class="uk-input" type="text" placeholder="Food">
+                    <div id="eatInformation">
+                        <table id="Zplaces" class="uk-table k-table-divider">
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Rating</th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-    <br>
-    <div class="uk-position-center">
-        <div class="uk-flex uk-flex-center uk-animation-scale-up">
-            <!-- <div class="uk-overlay uk-overlay-default"> -->
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-10">
-                        <div style="overflow-y: scroll; height:500px;">
-                            <button id="Zsubmit" class="uk-button uk-button-default">Submit</button>
-                            <input id="foodPref" class="uk-input" type="text" placeholder="Food">
-                            <div id="eatInformation">
-                                <table id="Zplaces" class="uk-table k-table-divider">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Rating</th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div id="accurateContainer">
-                            <div id="accurateLocation">
-                                <h2>
-                                    <p>Current temperature, accurate to your location!</p>
-                                    <div id="temp"></div>
-                                    <div id="minutely"></div>
-                                </h2>
-                                <h2>
-                                    <div id="location"></div>
-                                </h2>
-                            </div>
+                <div class="uk-width-1-3">
+                    <div id="accurateContainer">
+                        <div id="accurateLocation">
+                            <h2>
+                                <p>Current temperature, accurate to your location!</p>
+                                <div id="temp"></div>
+                                <div id="minutely"></div>
+                            </h2>
+                            <h2>
+                                <div id="location"></div>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -87,7 +72,7 @@
     </div>
 
     <video autoplay loop id="video-background" muted plays-inline>
-        <source src="assets/videos/Pizza - 176.mp4" type="video/mp4"></video>
+        <source src="assets/videos/Cocktails - 1056.vid" type="video/mp4"></video>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/javascript/api.js"></script>
