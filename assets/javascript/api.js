@@ -1,25 +1,25 @@
 //Firebase chat Start
-var config = {
-  apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
-  authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
-  databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
-  projectId: "trilogy-chat-f6ad1",
-  storageBucket: "trilogy-chat-f6ad1.appspot.com",
-  messagingSenderId: "487090093192"
-};
+// var config = {
+//   apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
+//   authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
+//   databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
+//   projectId: "trilogy-chat-f6ad1",
+//   storageBucket: "trilogy-chat-f6ad1.appspot.com",
+//   messagingSenderId: "487090093192"
+// };
 
-firebase.initializeApp(config);
-var database = firebase.database();
-getChat();
+// firebase.initializeApp(config);
+// var database = firebase.database();
+// getChat();
 
-$("#chatSubmit").on("click", function(){
-  pushChat();
-});
+// $("#chatSubmit").on("click", function(){
+//   pushChat();
+// });
 
-function UpdateChatBox(chat, time){
-  var TnC = time + " " + chat;
-  $("#chatbox").append($("<p>").text(TnC));
-}
+// function UpdateChatBox(chat, time){
+//   var TnC = time + " " + chat;
+//   $("#chatbox").append($("<p>").text(TnC));
+// }
 
 function pushChat(){
   var dChat = $("#userInput").val();
@@ -90,9 +90,9 @@ $("#Zplaces").append(row);
 
 //Zoomato API Start
 $("#Zsubmit").on("click", function(){
-var address;
-var query;
-var radius;
+var address = "201 E Randolph St, Chicago, IL 60602";
+var query = "";
+var radius = "8046.72"; //@ Return to verify inputs later
 address = $("#userLocation").val();
 query = $("#foodPref").val();
 radius = 1609.34 * $("#milesPref").val();
@@ -103,30 +103,38 @@ console.log(query);
 console.log("Miles preference is")
 console.log(radius / 1609.34);
 console.log(radius);
-
-var Zurl = "https://developers.zomato.com/api/v2.1/search?entity_id="+ address +"&q="+ query +"&count=10&lat=87.6298&lon=41.8781&radius="+ radius +"&sort=real_distance";
-$.ajax({
-  url: Zurl,
-  headers: {'user-key': 'f92328b88e65fe94874fbec64cb80a2a'},
-  method: "GET"
-})
-  .then(function(Zresponse) {
-   console.log(Zresponse);
-   var restaurants = Zresponse.restaurants;
-
-  for (var i = 0; i < restaurants.length; i++){
-    var resName = (restaurants[i].restaurant.name);
-    var resAddress = (restaurants[i].restaurant.location.address);
-    var resLocality = (restaurants[i].restaurant.location.locality);
-    var resRating;
-    var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
-    if ( aggregateRating == 0){
-      resRating =  restaurants[i].restaurant.user_rating.rating_text;
-    } else{
-      resRating = aggregateRating;
-    }
-    createElements(resName, resAddress, resLocality, resRating);
-  }
-  });
+foodValidate(query, address, radius);
 });
+
+
+function foodValidate(query, address, radius){
+if (query == "" || address == "" || radius == ""){
+  $("#foodPref").attr("placeholder", "Please enter a valid input!");
+} else {
+  var Zurl = "https://developers.zomato.com/api/v2.1/search?entity_id="+ address +"&q="+ query +"&count=10&lat=87.6298&lon=41.8781&radius="+ radius +"&sort=real_distance";
+  $.ajax({
+    url: Zurl,
+    headers: {'user-key': 'f92328b88e65fe94874fbec64cb80a2a'},
+    method: "GET"
+  })
+    .then(function(Zresponse) {
+    console.log(Zresponse);
+    var restaurants = Zresponse.restaurants;
+
+    for (var i = 0; i < restaurants.length; i++){
+      var resName = (restaurants[i].restaurant.name);
+      var resAddress = (restaurants[i].restaurant.location.address);
+      var resLocality = (restaurants[i].restaurant.location.locality);
+      var resRating;
+      var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
+      if ( aggregateRating == 0){
+        resRating =  restaurants[i].restaurant.user_rating.rating_text;
+      } else{
+        resRating = aggregateRating;
+      }
+      createElements(resName, resAddress, resLocality, resRating);
+    }
+    });
+  }
+}
 //Zoomato API End
