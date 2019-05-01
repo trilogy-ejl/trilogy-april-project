@@ -1,4 +1,25 @@
 /* Style sheet for trilogy project */
+
+body {
+    background-color: transparent!important;
+}
+
+.uk-button-primary {
+    background-color: #B4DDF1 !important;
+    color: black !important;
+}
+
+.uk-dropdown {
+    background-color: #B4DDF1 !important;
+    color: black !important;
+}
+
+
+#logo {
+    height: 25%;
+    width: 25%;
+}
+
 #video-background{
     position: fixed;
     right: 0;
@@ -11,24 +32,17 @@
 }
 
 .uk-position-bottom{
-    margin-bottom: 1%;
+    margin: 0, auto;
 }
 
-.uk-navbar-nav>li.uk-active>a {
-    color: #333;
-    font-size: x-large;
+#navButton{
+    margin-left: 1%;
+    margin-top: 1%;
 }
 
-.uk-navbar-nav>li>a {
-    color: #999;
-    text-transform: uppercase;
-    transition: .1s ease-in-out;
-    transition-property: color,background-color;
-    font-size: xx-large;
-}
 
 #eatInformation, #drinkInformation, #liveInformation{
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     color: black;
 }
 
@@ -40,7 +54,8 @@
   }
 
 #accurateLocation{
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     color: black;
     text-align: center; 
 }
+

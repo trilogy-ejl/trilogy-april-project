@@ -4,45 +4,58 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Eat, Drink, Live Chicago!! - Eat!</title>
+    <title>Eat, Drink, Live Chicago!! - Live!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="assets/javascript/uikit.min.js"></script>
+    <script src="assets/javascript/uikit-icons.min.js"></script>
 </head>
 
 <body>
-    <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="index.html">Home</a></li>
-                <li class="uk-active"><a href="#">About Us</a></li>
-                <li class="uk-active"><a href="contact.html">Contact Us</a></li>
+    <div id="navButton">
+        <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
+            type="button">Menu</button>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">The Menu</li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Comments Board</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="">About Us</a></li>
             </ul>
-        </div>
-    </nav>
-    <div class="uk-flex uk-flex-center">
-        <div class="uk-position-center uk-overlay uk-overlay-default">
-            <div class="container">
-                <div class="row">
-                    <div class="col-8">
+      </div>
 
-                        <div id="liveInformation">
-                        </div>
+    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
+        <div id="logo">
+            <img src="assets/images/EDLC Logo.png" alt="EDLC">
+        </div>
+    </div>
+
+    <br>
+    <div class="uk-container uk-container-expand">
+        <div class="uk-animation-scale-up">
+            <div class="uk-grid">
+                <div class="uk-width-2-3" uk-overflow-hidden>
+                    <div id="liveInformation">
+                      
                     </div>
-                    <div class="col-4">
-                        <div id="accurateContainer">
-                            <div id="accurateLocation">
-                                <h1>
-                                    <p>Current temperature, accurate to your location!</p>
-                                    <div id="temp"></div>
-                                    <div id="minutely"></div>
-                                </h1>
-                                <h2>
-                                    <div id="location"></div>
-                                </h2>
-                            </div>
+                </div>
+                <div class="uk-width-1-3">
+                    <div id="accurateContainer">
+                        <div id="accurateLocation">
+                            <h2>
+                                <p>Current temperature, accurate to your location!</p>
+                                <div id="temp"></div>
+                                <div id="minutely"></div>
+                            </h2>
+                            <h2>
+                                <div id="location"></div>
+                            </h2>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Eat, Drink, Live Chicago!! - Drink!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/storeStyle.css" />
+</head>
+
+<body>
+    <div id="navButton">
+        <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
+            type="button">Menu</button>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">The Menu</li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Comments Board</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
+        <div id="logo">
+            <img src="assets/images/EDLC Logo.png" alt="EDLC">
+        </div>
+    </div>
+
+    <br>
+    <div class="uk-animation-scale-up">
+    <main class="container">
+
+            <!-- Left Column / Headphones Image -->
+            <div class="left-column">
+              <img id="blackUnisex" data-image="black" src="assets/images/male1.jpg" alt="">
+              <img id="blueUnisex" data-image="blue" src="assets/images/male3.jpg" alt="">
+              <img id="redUnisex" data-image="red" class="active" src="assets/images/male4.jpg" alt="">
+            </div>
+      
+      
+            <!-- Right Column -->
+            <div class="right-column">
+      
+              <!-- Product Description -->
+              <div class="product-description">
+                <span>1st Edition T-Shirt</span>
+                <h1>EDLC 1st Edition Unisex T-Shirt</h1>
+                <p>What a better way to show off your pride for the great city of Chicago with one of these awesome shirts!! Let everyone know Eating, Drinking, and Living in Chicago is the best!</p>
+                <p>Sizes and availability coming soon!!</p>
+              </div>
+      
+              <!-- Product Configuration -->
+              <div class="product-configuration">
+      
+                <!-- Product Color -->
+                <div class="product-color">
+                  <span>Colors</span>
+      
+                  <div class="color-choose">
+                    <div>
+                      <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                      <label for="red"><span></span></label>
+                    </div>
+                    <div>
+                      <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                      <label for="blue"><span></span></label>
+                    </div>
+                    <div>
+                      <input data-image="black" type="radio" id="black" name="color" value="black">
+                      <label for="black"><span></span></label>
+                    </div>
+                  </div>
+      
+                </div>
+
+              <div class="product-price">
+                <span>$19.99</span>
+                <a href="#" class="cart-btn">Coming Soon</a>
+              </div>
+            </div>
+          </main>
+        </div>
+
+
+    <video autoplay loop id="video-background" muted plays-inline>
+        <source src="assets/videos/Cocktails - 1056.vid" type="video/mp4"></video>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/javascript/uikit.min.js"></script>
+    <script src="assets/javascript/uikit-icons.min.js"></script>
+    <script src="assets/javascript/api.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
