@@ -1,54 +1,5 @@
-//Firebase chat Start
-// var config = {
-//   apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
-//   authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
-//   databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
-//   projectId: "trilogy-chat-f6ad1",
-//   storageBucket: "trilogy-chat-f6ad1.appspot.com",
-//   messagingSenderId: "487090093192"
-// };
-
-// firebase.initializeApp(config);
-// var database = firebase.database();
-// getChat();
-
-// $("#chatSubmit").on("click", function(){
-//   pushChat();
-// });
-
-// function UpdateChatBox(chat, time){
-//   var TnC = time + " " + chat;
-//   $("#chatbox").append($("<p>").text(TnC));
-// }
-
-function pushChat(){
-  var dChat = $("#userInput").val();
-  console.log("Current Text in chat is:")
-  console.log(dChat);
-  var dTime = moment().format("HH:mm");
-  console.log("Current Time is: ")
-  console.log(dTime);
-  $("#userInput").val("");
-  database.ref().push({
-    'dChat': dChat,
-    'dTime': dTime
-  });
-};
-
-function getChat(){
-  database.ref().on("child_added", function(child){
-    var dChat = child.val().dChat;
-    var dTime = child.val().dTime;
-    console.log(dChat);
-    console.log(dTime);
-    UpdateChatBox(dChat, dTime);
-  });
-
-}
-//Firebase chat end
-
 //Open Weather Map API code starts here
- //NOTE: 60 calls a minute max, weather API updates every 3 hours.
+//NOTE: 60 calls a minute max, weather API updates every 3 hours.
  var owpKey = "276e65cee16932f5d1ff28e21441e141";
  var  queryURL= "https://api.openweathermap.org/data/2.5/forecast?q=Chicago,us&appid=" + owpKey;
 
@@ -138,3 +89,59 @@ if (query == "" || address == "" || radius == ""){
   }
 }
 //Zoomato API End
+
+//Firebase chat Start
+var config = {
+  apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
+  authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
+  databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
+  projectId: "trilogy-chat-f6ad1",
+  storageBucket: "trilogy-chat-f6ad1.appspot.com",
+  messagingSenderId: "487090093192"
+};
+
+firebase.initializeApp(config);
+var database = firebase.database();
+getComment();
+
+$("#commentSubmit").on("click", function(){
+  event.preventDefault();
+  pushComment();
+});
+
+function UpdateCommentBox(chat, time){
+  var TnC = time + " " + chat;
+  $("#chatbox").append($("<p>").text(TnC));
+}
+
+function pushComment(){
+  var dUser = $("#userName").val();
+  console.log("The current userName is:")
+  console.log(dUser);
+  var dComment = $("#userComment").val();
+  console.log("Current comment is:")
+  console.log(dComment);
+  var dDate = moment().format("MM-DD-YYYY");
+  console.log("Current date is: ")
+  console.log(dDate);
+  $("#userComment").val("");
+  $("#userName").val("");
+  database.ref().push({
+    'dUser': dUser,
+    'dComment': dComment,
+    'dDate': dDate
+  });
+};
+
+function getComment(){
+  database.ref().on("child_added", function(child){
+    var dComment = child.val().dChat;
+    var dDate = child.val().dTime;
+    var dUser = child.val().dUser;
+    console.log(dUser);
+    console.log(dComment);
+    console.log(dDate);
+    UpdateCommentBox(dComment, dDate, dUser);
+  });
+}
+//Firebase chat end
