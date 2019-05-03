@@ -40,9 +40,15 @@ function events() {
     for (var i = 0; i < response.events.length; i++) {
       console.log('*******DESCRIPTION', response.events[i].description.text);
       console.log('**********NAME', response.events[i].name.text);
-      var descrip = $("<p>").text(response.events[i].description.text);
+      // var descrip = $("<p>").text(response.events[i].description.text);
+      // var name = $("<h1>").text(response.events[i].name.text);
       var name = $("<h1>").text(response.events[i].name.text);
-      $("#liveInformation").append(name, descrip);
+      var descrip = $("<p>").text(response.events[i].description.text);
+      var start = $("<p>").text(response.events[i].start.local);
+      var summart = $("<p>").text(response.events[i].start.summary);
+      var address = $("<p>").text(response.events[i].venue.address.localized_address_display);
+      var venuename = $("<p>").text(response.events[i].venue.name);
+      $("#liveInformation").append(name, start, descrip,address,venuename);
       // $('#output').text(response.events[1]);
     }
   })
@@ -61,16 +67,24 @@ events();
   }
 }(document, 'script', 'weatherwidget-io-js');
 
-!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+! function (d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (!d.getElementById(id)) {
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://weatherwidget.io/js/widget.min.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+}(document, 'script', 'weatherwidget-io-js');
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-  $('.color-choose input').on('click', function() {
-      var shirtColor = $(this).attr('data-image');
+  $('.color-choose input').on('click', function () {
+    var shirtColor = $(this).attr('data-image');
 
-      $('.active').removeClass('active');
-      $('.left-column img[data-image = ' + shirtColor + ']').addClass('active');
-      $(this).addClass('active');
+    $('.active').removeClass('active');
+    $('.left-column img[data-image = ' + shirtColor + ']').addClass('active');
+    $(this).addClass('active');
   });
 
 });
