@@ -102,6 +102,15 @@ $("#loadMore").on("click", function(){
   addToCount += 10;
   callAPI(query, address, radius, addToCount);
 });
+
+$("#menuButtons").on("click","button#Zselection", function(){
+  $("#Zplaces td").remove();
+  $("#loadMore").show();
+  query = $(this).attr("data-value");
+  console.log("HERERERERERER");
+  console.log(query);
+  callAPI(query, address, radius, count);
+});
 //Zoomato API End
 
 //Firebase chat Start
