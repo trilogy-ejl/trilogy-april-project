@@ -5,7 +5,7 @@ body {
 }
 
 .uk-button-primary {
-    background-color: #B4DDF1 !important;
+    background-color: transparent!important;
     color: black !important;
 }
 
@@ -20,7 +20,7 @@ body {
     width: 25%;
 }
 
-#video-background{
+/* .uk-cover-object{
     position: fixed;
     right: 0;
     bottom: 0;
@@ -28,11 +28,28 @@ body {
     min-height: 100%;
     width: auto;
     height: auto;
+        
+} */
+
+#video-background{
+    position: fixed;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
     z-index: -100;
+    background-color: black;
 }
 
 .uk-position-bottom{
     margin: 0, auto;
+}
+
+.uk-legend{
+    color:white !important;
 }
 
 #navButton{
@@ -56,7 +73,21 @@ body {
 #accurateLocation{
     background: rgba(255, 255, 255, 0.9);
     color: black;
-    text-align: center; 
+    text-align: center;
+    position: sticky;
+    top: 50%;
+    float: right;
+    width: 360px;
+    margin-right: 50px;
+}
+
+.eventinfo {
+    text-align: justify;
+   }
+
+
+.uk-container {
+    clear: inherit;
 }
 
 .truncate {
@@ -69,3 +100,7 @@ body {
   .center1 {
     text-align: justify;
   }
+
+.commentBox {
+    width: 960px;
+}

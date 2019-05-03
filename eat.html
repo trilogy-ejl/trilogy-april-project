@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="assets/javascript/uikit.min.js"></script>
     <script src="assets/javascript/uikit-icons.min.js"></script>
 </head>
@@ -18,7 +19,7 @@
 <body>
     <div id="navButton">
         <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
-            type="button">Menu</button>
+            type="button"><img src="assets/images/icons8-menu-64.png"></button>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
                 <li class="uk-nav-header">The Menu</li>
@@ -30,16 +31,28 @@
             </ul>
         </div>
     </div>
-    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
+    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-center">
         <div id="logo">
             <img src="assets/images/EDLC Logo.png" alt="EDLC">
         </div>
     </div>
+    <div id="accurateLocation">
+            <h2>
+                <p>Current temperature, accurate to your location!</p>
+                <div id="temp"></div>
+                <div id="minutely"></div>
+            </h2>
+            <h2>
+                <div id="location"></div>
+            </h2>
+        </div>
+
     <br>
+    
     <div class="uk-container uk-container-expand">
         <div class="uk-animation-scale-up">
             <div class="uk-grid">
-                <div class="uk-width-2-3" uk-overflow-hidden>
+                <div class="uk-width-7-8" uk-overflow-hidden>
                     <button id="Zsubmit" class="uk-button uk-button-default">Submit</button>
                     <input id="foodPref" class="uk-input" type="text" placeholder="Begin food search!">
                     <div id="eatInformation">
@@ -51,19 +64,11 @@
                             </tr>
                         </table>
                     </div>
+                    <div id="loadMore" style="display: none;">More Locations</div>
                 </div>
-                <div class="uk-width-1-3">
+                <div class="uk-width-1-8">
                     <div id="accurateContainer">
-                        <div id="accurateLocation">
-                            <h2>
-                                <p>Current temperature, accurate to your location!</p>
-                                <div id="temp"></div>
-                                <div id="minutely"></div>
-                            </h2>
-                            <h2>
-                                <div id="location"></div>
-                            </h2>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -72,8 +77,7 @@
     </div>
 
     <video autoplay loop id="video-background" muted plays-inline>
-        <source src="assets/videos/Cocktails - 1056.vid" type="video/mp4"></video>
-
+    <source src="assets/videos/Pizza - 176.mp4" type="video/mp4"></video>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/javascript/api.js"></script>
     <script src="assets/javascript/app.js"></script>
