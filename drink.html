@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Eat, Drink, Live Chicago!! - Drink!</title>
+    <title>Eat, Drink, Live Chicago!! - Eat!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="assets/javascript/uikit.min.js"></script>
     <script src="assets/javascript/uikit-icons.min.js"></script>
 </head>
@@ -18,7 +19,7 @@
 <body>
     <div id="navButton">
         <button class="uk-button uk-button-primary uk-animation-scale-up uk-transform-origin-bottom-right"
-            type="button">Menu</button>
+            type="button"><img src="assets/images/icons8-menu-64.png"></button>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
                 <li class="uk-nav-header">The Menu</li>
@@ -30,254 +31,46 @@
             </ul>
         </div>
     </div>
-
-    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-cente">
+    <div class="uk-flex uk-flex-center uk-animation-scale-up uk-transform-origin-top-center">
         <div id="logo">
             <img src="assets/images/EDLC Logo.png" alt="EDLC">
         </div>
     </div>
+    <div id="accurateLocation">
+            <h2>
+                <p>Current temperature, accurate to your location!</p>
+                <div id="temp"></div>
+                <div id="minutely"></div>
+            </h2>
+            <h2>
+                <div id="location"></div>
+            </h2>
+        </div>
 
     <br>
+    
     <div class="uk-container uk-container-expand">
         <div class="uk-animation-scale-up">
             <div class="uk-grid">
-                <div class="uk-width-2-3" uk-overflow-hidden>
-                        <div id="liveInformation">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius metus ex. Duis ut
-                            ex
-                            ligula. Pellentesque gravida faucibus libero quis convallis. Vestibulum interdum luctus
-                            lectus
-                            eget dictum. Vivamus ipsum tortor, cursus sit amet blandit a, hendrerit in ante. Aenean
-                            odio
-                            ligula, consequat quis sem eu, mollis scelerisque dolor. Nulla facilisi. Nam posuere at
-                            ante
-                            sed
-                            malesuada. Proin condimentum, mauris in rhoncus consectetur, justo metus malesuada urna,
-                            ut
-                            luctus mauris ex in purus. Donec id convallis tortor.
-
-                            Sed dolor augue, viverra ac massa non, porttitor ultrices nisl. Nam id lobortis justo,
-                            vitae
-                            iaculis quam. Aliquam nisi mi, bibendum ac odio quis, dignissim dignissim sem. Mauris
-                            vel
-                            convallis nisl. Suspendisse nec augue lorem. Integer pulvinar arcu quam, eu gravida
-                            tellus
-                            fringilla et. Quisque erat odio, convallis id semper ac, ultricies vitae metus. Cras
-                            lacinia
-                            tristique est, eget sagittis neque consectetur ac. Quisque euismod, augue et elementum
-                            facilisis, mi nulla imperdiet dolor, eu placerat odio mauris sed lacus. Nam finibus
-                            luctus
-                            risus
-                            vel tempus. In hac habitasse platea dictumst. Cras rutrum massa ut justo auctor, et
-                            vulputate
-                            velit interdum. Integer lectus nisi, gravida euismod odio vitae, accumsan maximus
-                            lectus.
-                            Nunc
-                            iaculis quam non dolor tincidunt tristique. Orci varius natoque penatibus et magnis dis
-                            parturient montes, nascetur ridiculus mus.
-
-                            Maecenas at diam tortor. Fusce id augue vulputate, pharetra enim ac, dapibus augue.
-                            Aliquam
-                            erat
-                            volutpat. Ut tempus fermentum libero eu feugiat. Donec tempor nunc eu tellus condimentum
-                            vestibulum. Quisque ligula diam, maximus vitae sodales ac, faucibus vitae augue.
-                            Pellentesque
-                            consequat vitae risus eget placerat. Maecenas sed tempor ligula, vel fringilla nulla.
-                            Donec
-                            nisi
-                            lorem, accumsan sit amet ipsum id, sagittis faucibus lacus. Fusce placerat leo eu
-                            volutpat
-                            malesuada. Vivamus feugiat velit tristique, ullamcorper nulla ornare, ultricies dui.
-                            Fusce
-                            eget
-                            augue id augue vehicula elementum at nec massa. Proin sollicitudin magna libero, sit
-                            amet
-                            tempus
-                            felis mattis eu.
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel sollicitudin neque,
-                            sit
-                            amet
-                            tempor lectus. Etiam venenatis ligula pharetra euismod pharetra. Pellentesque vitae
-                            vehicula
-                            elit, in malesuada lorem. Vestibulum tincidunt, lectus id condimentum euismod, sapien
-                            massa
-                            facilisis massa, faucibus vulputate massa justo non dui. Sed scelerisque orci non
-                            sagittis
-                            faucibus. Quisque tincidunt pellentesque mi eu porta. Curabitur ac egestas eros, eu
-                            vulputate
-                            erat. Suspendisse consectetur elit at auctor molestie.
-
-                            Nulla vel tortor orci. Donec ac libero eu diam vehicula tincidunt. Aliquam eu mollis
-                            ante.
-                            In
-                            nec augue felis. Praesent euismod neque ac turpis malesuada scelerisque. Nulla sagittis
-                            orci
-                            non
-                            iaculis vehicula. Duis in semper massa. Curabitur at neque sed massa vehicula hendrerit
-                            imperdiet eu arcu.
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius metus ex. Duis ut
-                                ex
-                                ligula. Pellentesque gravida faucibus libero quis convallis. Vestibulum interdum luctus
-                                lectus
-                                eget dictum. Vivamus ipsum tortor, cursus sit amet blandit a, hendrerit in ante. Aenean
-                                odio
-                                ligula, consequat quis sem eu, mollis scelerisque dolor. Nulla facilisi. Nam posuere at
-                                ante
-                                sed
-                                malesuada. Proin condimentum, mauris in rhoncus consectetur, justo metus malesuada urna,
-                                ut
-                                luctus mauris ex in purus. Donec id convallis tortor.
-    
-                                Sed dolor augue, viverra ac massa non, porttitor ultrices nisl. Nam id lobortis justo,
-                                vitae
-                                iaculis quam. Aliquam nisi mi, bibendum ac odio quis, dignissim dignissim sem. Mauris
-                                vel
-                                convallis nisl. Suspendisse nec augue lorem. Integer pulvinar arcu quam, eu gravida
-                                tellus
-                                fringilla et. Quisque erat odio, convallis id semper ac, ultricies vitae metus. Cras
-                                lacinia
-                                tristique est, eget sagittis neque consectetur ac. Quisque euismod, augue et elementum
-                                facilisis, mi nulla imperdiet dolor, eu placerat odio mauris sed lacus. Nam finibus
-                                luctus
-                                risus
-                                vel tempus. In hac habitasse platea dictumst. Cras rutrum massa ut justo auctor, et
-                                vulputate
-                                velit interdum. Integer lectus nisi, gravida euismod odio vitae, accumsan maximus
-                                lectus.
-                                Nunc
-                                iaculis quam non dolor tincidunt tristique. Orci varius natoque penatibus et magnis dis
-                                parturient montes, nascetur ridiculus mus.
-    
-                                Maecenas at diam tortor. Fusce id augue vulputate, pharetra enim ac, dapibus augue.
-                                Aliquam
-                                erat
-                                volutpat. Ut tempus fermentum libero eu feugiat. Donec tempor nunc eu tellus condimentum
-                                vestibulum. Quisque ligula diam, maximus vitae sodales ac, faucibus vitae augue.
-                                Pellentesque
-                                consequat vitae risus eget placerat. Maecenas sed tempor ligula, vel fringilla nulla.
-                                Donec
-                                nisi
-                                lorem, accumsan sit amet ipsum id, sagittis faucibus lacus. Fusce placerat leo eu
-                                volutpat
-                                malesuada. Vivamus feugiat velit tristique, ullamcorper nulla ornare, ultricies dui.
-                                Fusce
-                                eget
-                                augue id augue vehicula elementum at nec massa. Proin sollicitudin magna libero, sit
-                                amet
-                                tempus
-                                felis mattis eu.
-    
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel sollicitudin neque,
-                                sit
-                                amet
-                                tempor lectus. Etiam venenatis ligula pharetra euismod pharetra. Pellentesque vitae
-                                vehicula
-                                elit, in malesuada lorem. Vestibulum tincidunt, lectus id condimentum euismod, sapien
-                                massa
-                                facilisis massa, faucibus vulputate massa justo non dui. Sed scelerisque orci non
-                                sagittis
-                                faucibus. Quisque tincidunt pellentesque mi eu porta. Curabitur ac egestas eros, eu
-                                vulputate
-                                erat. Suspendisse consectetur elit at auctor molestie.
-    
-                                Nulla vel tortor orci. Donec ac libero eu diam vehicula tincidunt. Aliquam eu mollis
-                                ante.
-                                In
-                                nec augue felis. Praesent euismod neque ac turpis malesuada scelerisque. Nulla sagittis
-                                orci
-                                non
-                                iaculis vehicula. Duis in semper massa. Curabitur at neque sed massa vehicula hendrerit
-                                imperdiet eu arcu.
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius metus ex. Duis ut
-                            ex
-                            ligula. Pellentesque gravida faucibus libero quis convallis. Vestibulum interdum luctus
-                            lectus
-                            eget dictum. Vivamus ipsum tortor, cursus sit amet blandit a, hendrerit in ante. Aenean
-                            odio
-                            ligula, consequat quis sem eu, mollis scelerisque dolor. Nulla facilisi. Nam posuere at
-                            ante
-                            sed
-                            malesuada. Proin condimentum, mauris in rhoncus consectetur, justo metus malesuada urna,
-                            ut
-                            luctus mauris ex in purus. Donec id convallis tortor.
-
-                            Sed dolor augue, viverra ac massa non, porttitor ultrices nisl. Nam id lobortis justo,
-                            vitae
-                            iaculis quam. Aliquam nisi mi, bibendum ac odio quis, dignissim dignissim sem. Mauris
-                            vel
-                            convallis nisl. Suspendisse nec augue lorem. Integer pulvinar arcu quam, eu gravida
-                            tellus
-                            fringilla et. Quisque erat odio, convallis id semper ac, ultricies vitae metus. Cras
-                            lacinia
-                            tristique est, eget sagittis neque consectetur ac. Quisque euismod, augue et elementum
-                            facilisis, mi nulla imperdiet dolor, eu placerat odio mauris sed lacus. Nam finibus
-                            luctus
-                            risus
-                            vel tempus. In hac habitasse platea dictumst. Cras rutrum massa ut justo auctor, et
-                            vulputate
-                            velit interdum. Integer lectus nisi, gravida euismod odio vitae, accumsan maximus
-                            lectus.
-                            Nunc
-                            iaculis quam non dolor tincidunt tristique. Orci varius natoque penatibus et magnis dis
-                            parturient montes, nascetur ridiculus mus.
-
-                            Maecenas at diam tortor. Fusce id augue vulputate, pharetra enim ac, dapibus augue.
-                            Aliquam
-                            erat
-                            volutpat. Ut tempus fermentum libero eu feugiat. Donec tempor nunc eu tellus condimentum
-                            vestibulum. Quisque ligula diam, maximus vitae sodales ac, faucibus vitae augue.
-                            Pellentesque
-                            consequat vitae risus eget placerat. Maecenas sed tempor ligula, vel fringilla nulla.
-                            Donec
-                            nisi
-                            lorem, accumsan sit amet ipsum id, sagittis faucibus lacus. Fusce placerat leo eu
-                            volutpat
-                            malesuada. Vivamus feugiat velit tristique, ullamcorper nulla ornare, ultricies dui.
-                            Fusce
-                            eget
-                            augue id augue vehicula elementum at nec massa. Proin sollicitudin magna libero, sit
-                            amet
-                            tempus
-                            felis mattis eu.
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel sollicitudin neque,
-                            sit
-                            amet
-                            tempor lectus. Etiam venenatis ligula pharetra euismod pharetra. Pellentesque vitae
-                            vehicula
-                            elit, in malesuada lorem. Vestibulum tincidunt, lectus id condimentum euismod, sapien
-                            massa
-                            facilisis massa, faucibus vulputate massa justo non dui. Sed scelerisque orci non
-                            sagittis
-                            faucibus. Quisque tincidunt pellentesque mi eu porta. Curabitur ac egestas eros, eu
-                            vulputate
-                            erat. Suspendisse consectetur elit at auctor molestie.
-
-                            Nulla vel tortor orci. Donec ac libero eu diam vehicula tincidunt. Aliquam eu mollis
-                            ante.
-                            In
-                            nec augue felis. Praesent euismod neque ac turpis malesuada scelerisque. Nulla sagittis
-                            orci
-                            non
-                            iaculis vehicula. Duis in semper massa. Curabitur at neque sed massa vehicula hendrerit
-                            imperdiet eu arcu.
-                        </div>
-                </div>       
-                <div class="uk-width-1-3">
+                <div id="menuButtons" class="uk-width-7-8" uk-overflow-hidden>
+                    <button id="Zselection" data-value="beer" class="uk-button uk-button-default">Beer</button>
+                    <button id="Zselection" data-value="wine" class="uk-button uk-button-default">Wine</button>
+                    <button id="Zselection" data-value="tequila" class="uk-button uk-button-default">Tequila</button>
+                    <button id="Zselection" data-value="coffee" class="uk-button uk-button-default">Coffee</button>
+                    <div id="eatInformation">
+                        <table id="Zplaces" class="uk-table k-table-divider">
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Rating</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="loadMore" style="display: none;">More Locations</div>
+                </div>
+                <div class="uk-width-1-8">
                     <div id="accurateContainer">
-                        <div id="accurateLocation">
-                            <h2>
-                                <p>Current temperature, accurate to your location!</p>
-                                <div id="temp"></div>
-                                <div id="minutely"></div>
-                            </h2>
-                            <h2>
-                                <div id="location"></div>
-                            </h2>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -286,8 +79,8 @@
     </div>
 
     <video autoplay loop id="video-background" muted plays-inline>
-        <source src="assets/videos/Cocktails - 1056.vid" type="video/mp4"></video>
-
+    <source src="assets/videos/Cocktails - 1056.vid" type="video/mp4"></video>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/javascript/api.js"></script>
     <script src="assets/javascript/app.js"></script>
