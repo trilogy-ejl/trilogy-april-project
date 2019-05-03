@@ -38,20 +38,20 @@ function events() {
   }).then(function (response) {
       console.log(response.events);
       for (var i = 0; i < response.events.length; i++) {
-          var name = $("<h1>").text(response.events[i].name.text);
+          var name = $("<h1>").text(response.events[i].name.text).addClass("p1");
           var descrip = $("<p>").text(response.events[i].description.text).addClass(
-              "center1 truncate");
+              "center1 truncate p1");
           descrip.attr('data-index', i);
-          var more = $('<button>').text('See More');
+          var more = $('<button>').text('See More').addClass("p1");
           more.attr({
               'data-index': i,
               'data-more': false
           });
           var start = $("<p>").text(moment(response.events[i].start.local, 'YYYY-MM-DD')
-              .format("DD/MM/YY hh:mm A"));
+              .format("DD/MM/YY hh:mm A")).addClass("p1");
           var url = $("<a href>").text(response.events[i].url);
           var address = $("<p>").text(response.events[i].venue.address
-              .localized_address_display);
+              .localized_address_display).addClass("p1");
          $("#liveInformation").append(name, start, descrip, more, address);
 
       }
