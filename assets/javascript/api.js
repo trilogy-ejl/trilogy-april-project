@@ -104,58 +104,64 @@ $("#loadMore").on("click", function(){
 });
 //Zoomato API End
 
-// //Firebase chat Start
-// var config = {
-//   apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
-//   authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
-//   databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
-//   projectId: "trilogy-chat-f6ad1",
-//   storageBucket: "trilogy-chat-f6ad1.appspot.com",
-//   messagingSenderId: "487090093192"
-// };
+//Firebase chat Start
+var config = {
+  apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
+  authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
+  databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
+  projectId: "trilogy-chat-f6ad1",
+  storageBucket: "trilogy-chat-f6ad1.appspot.com",
+  messagingSenderId: "487090093192"
+};
 
-// firebase.initializeApp(config);
-// var database = firebase.database();
-// getComment();
+firebase.initializeApp(config);
+var database = firebase.database();
+getComment();
 
-// $("#commentSubmit").on("click", function(){
-//   event.preventDefault();
-//   pushComment();
-// });
+$("#commentSubmit").on("click", function(){
+  event.preventDefault();
+  pushComment();
+});
 
-// function UpdateCommentBox(chat, time){
-//   var TnC = time + " " + chat;
-//   $("#chatbox").append($("<p>").text(TnC));
-// }
+function UpdateCommentBox(dComment, dDate, dUser){
+  var dateAndUser = dDate + " " + dUser;
+  var div = $("<div>").attr("class","uk-card uk-card-secondary uk-card-body");
+  var header = $("<h2>").attr("class", "uk-card-title");
+  var p = $("<p>");
+  var nameHTML = div.append(header.text(dateAndUser));
+  nameHTML.append("<hr>");
+  nameHTML.append(p.text(dComment));
+  $("#recentReviews").append(nameHTML);
+}
 
-// function pushComment(){
-//   var dUser = $("#userName").val();
-//   console.log("The current userName is:")
-//   console.log(dUser);
-//   var dComment = $("#userComment").val();
-//   console.log("Current comment is:")
-//   console.log(dComment);
-//   var dDate = moment().format("MM-DD-YYYY");
-//   console.log("Current date is: ")
-//   console.log(dDate);
-//   $("#userComment").val("");
-//   $("#userName").val("");
-//   database.ref().push({
-//     'dUser': dUser,
-//     'dComment': dComment,
-//     'dDate': dDate
-//   });
-// };
+function pushComment(dComment, dDate, dUser){
+  var dUser = $("#userName").val();
+  console.log("The current userName is:")
+  console.log(dUser);
+  var dComment = $("#userComment").val();
+  console.log("Current comment is:")
+  console.log(dComment);
+  var dDate = moment().format("MM-DD-YYYY");
+  console.log("Current date is: ")
+  console.log(dDate);
+  $("#userComment").val("");
+  $("#userName").val("");
+  database.ref().push({
+    'dUser': dUser,
+    'dComment': dComment,
+    'dDate': dDate
+  });
+};
 
-// function getComment(){
-//   database.ref().on("child_added", function(child){
-//     var dComment = child.val().dChat;
-//     var dDate = child.val().dTime;
-//     var dUser = child.val().dUser;
-//     console.log(dUser);
-//     console.log(dComment);
-//     console.log(dDate);
-//     UpdateCommentBox(dComment, dDate, dUser);
-//   });
-// }
-// //Firebase chat end
+function getComment(){
+  database.ref().limitToLast(3).on("child_added", function(child){
+    var dComment = child.val().dComment;
+    var dDate = child.val().dDate;
+    var dUser = child.val().dUser;
+    console.log(dUser);
+    console.log(dComment);
+    console.log(dDate);
+    UpdateCommentBox(dComment, dDate, dUser);
+  });
+}
+//Firebase chat end
