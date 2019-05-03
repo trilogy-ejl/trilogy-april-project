@@ -52,7 +52,7 @@ function events() {
           var url = $("<a href>").text(response.events[i].url);
           var address = $("<p>").text(response.events[i].venue.address
               .localized_address_display);
-          $("#liveInformation").append(name, start, descrip, more, address);
+         $("#liveInformation").append(name, start, descrip, more, address);
 
       }
 
