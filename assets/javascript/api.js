@@ -3,6 +3,7 @@
  var owpKey = "276e65cee16932f5d1ff28e21441e141";
  var  queryURL= "https://api.openweathermap.org/data/2.5/forecast?q=Chicago,us&appid=" + owpKey;
 
+
 function toFahrenheit (kelvin){
     var tempeture = ((kelvin - 273.15) * (9/5) + 32).toFixed(2);
     return tempeture;
@@ -40,29 +41,36 @@ $("#Zplaces").append(row);
 
 
 //Zoomato API Start
+  var address = "201 E Randolph St, Chicago, IL 60602";
+  var query = "";
+  var radius = "8046.72"; //@ Return to verify inputs later
+  var count = "10"
+
 $("#Zsubmit").on("click", function(){
-var address = "201 E Randolph St, Chicago, IL 60602";
-var query = "";
-var radius = "8046.72"; //@ Return to verify inputs later
-address = $("#userLocation").val();
-query = $("#foodPref").val();
-radius = 1609.34 * $("#milesPref").val();
-console.log("Address Input is: ")
-console.log(address)
-console.log("Food Pref is:")
-console.log(query);
-console.log("Miles preference is")
-console.log(radius / 1609.34);
-console.log(radius);
-foodValidate(query, address, radius);
+  $("#Zplaces td").remove();
+  $("#loadMore").show();
+  query = $("#foodPref").val();
+  console.log("Address Input is: ")
+  console.log(address)
+  console.log("Food Pref is:")
+  console.log(query);
+  console.log("Miles preference is")
+  console.log(radius / 1609.34);
+  console.log(radius);
+  foodValidate(query, address, radius, count);
 });
 
 
-function foodValidate(query, address, radius){
+function foodValidate(query, address, radius, count){
 if (query == "" || address == "" || radius == ""){
   $("#foodPref").attr("placeholder", "Please enter a valid input!");
 } else {
-  var Zurl = "https://developers.zomato.com/api/v2.1/search?entity_id="+ address +"&q="+ query +"&count=10&lat=87.6298&lon=41.8781&radius="+ radius +"&sort=real_distance";
+    callAPI(query, address, radius, count)
+  }
+}
+
+function callAPI(query, address, radius, count){
+  var Zurl = "https://developers.zomato.com/api/v2.1/search?entity_id="+ address +"&q="+ query +"&count="+ count +"&lat=87.6298&lon=41.8781&radius="+ radius +"&sort=real_distance";
   $.ajax({
     url: Zurl,
     headers: {'user-key': 'f92328b88e65fe94874fbec64cb80a2a'},
@@ -86,62 +94,68 @@ if (query == "" || address == "" || radius == ""){
       createElements(resName, resAddress, resLocality, resRating);
     }
     });
-  }
 }
+
+$("#loadMore").on("click", function(){
+  $("#Zplaces td").remove();
+  var addToCount = count;
+  addToCount += 10;
+  callAPI(query, address, radius, addToCount);
+});
 //Zoomato API End
 
-//Firebase chat Start
-var config = {
-  apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
-  authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
-  databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
-  projectId: "trilogy-chat-f6ad1",
-  storageBucket: "trilogy-chat-f6ad1.appspot.com",
-  messagingSenderId: "487090093192"
-};
+// //Firebase chat Start
+// var config = {
+//   apiKey: "AIzaSyDEgmLkFdfvOJ6DQwlwPxC2moA9EZ-ufww",
+//   authDomain: "trilogy-chat-f6ad1.firebaseapp.com",
+//   databaseURL: "https://trilogy-chat-f6ad1.firebaseio.com",
+//   projectId: "trilogy-chat-f6ad1",
+//   storageBucket: "trilogy-chat-f6ad1.appspot.com",
+//   messagingSenderId: "487090093192"
+// };
 
-firebase.initializeApp(config);
-var database = firebase.database();
-getComment();
+// firebase.initializeApp(config);
+// var database = firebase.database();
+// getComment();
 
-$("#commentSubmit").on("click", function(){
-  event.preventDefault();
-  pushComment();
-});
+// $("#commentSubmit").on("click", function(){
+//   event.preventDefault();
+//   pushComment();
+// });
 
-function UpdateCommentBox(chat, time){
-  var TnC = time + " " + chat;
-  $("#chatbox").append($("<p>").text(TnC));
-}
+// function UpdateCommentBox(chat, time){
+//   var TnC = time + " " + chat;
+//   $("#chatbox").append($("<p>").text(TnC));
+// }
 
-function pushComment(){
-  var dUser = $("#userName").val();
-  console.log("The current userName is:")
-  console.log(dUser);
-  var dComment = $("#userComment").val();
-  console.log("Current comment is:")
-  console.log(dComment);
-  var dDate = moment().format("MM-DD-YYYY");
-  console.log("Current date is: ")
-  console.log(dDate);
-  $("#userComment").val("");
-  $("#userName").val("");
-  database.ref().push({
-    'dUser': dUser,
-    'dComment': dComment,
-    'dDate': dDate
-  });
-};
+// function pushComment(){
+//   var dUser = $("#userName").val();
+//   console.log("The current userName is:")
+//   console.log(dUser);
+//   var dComment = $("#userComment").val();
+//   console.log("Current comment is:")
+//   console.log(dComment);
+//   var dDate = moment().format("MM-DD-YYYY");
+//   console.log("Current date is: ")
+//   console.log(dDate);
+//   $("#userComment").val("");
+//   $("#userName").val("");
+//   database.ref().push({
+//     'dUser': dUser,
+//     'dComment': dComment,
+//     'dDate': dDate
+//   });
+// };
 
-function getComment(){
-  database.ref().on("child_added", function(child){
-    var dComment = child.val().dChat;
-    var dDate = child.val().dTime;
-    var dUser = child.val().dUser;
-    console.log(dUser);
-    console.log(dComment);
-    console.log(dDate);
-    UpdateCommentBox(dComment, dDate, dUser);
-  });
-}
-//Firebase chat end
+// function getComment(){
+//   database.ref().on("child_added", function(child){
+//     var dComment = child.val().dChat;
+//     var dDate = child.val().dTime;
+//     var dUser = child.val().dUser;
+//     console.log(dUser);
+//     console.log(dComment);
+//     console.log(dDate);
+//     UpdateCommentBox(dComment, dDate, dUser);
+//   });
+// }
+// //Firebase chat end
