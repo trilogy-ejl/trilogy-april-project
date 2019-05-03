@@ -27,31 +27,53 @@ function weather() {
 
 function events() {
 
-  var queryURL =
-    'https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.longitude=-87.623177&location.latitude=41.881832&expand=venue'
+  var queryURL ='https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.longitude=-87.623177&location.latitude=41.881832&expand=venue'
   $.ajax({
-    url: queryURL,
-    method: "GET", // Headers 
-    headers: {
-      "Authorization": "Bearer EAYDY5OXKROACFETSIVZ",
-    }
+      url: queryURL,
+      method: "GET", // Headers 
+      headers: {
+          "Authorization": "Bearer EAYDY5OXKROACFETSIVZ",
+      }
+      // Loop to grab date out of the eventbrite.com array and post info o the DOM
   }).then(function (response) {
-    console.log(response.events);
-    for (var i = 0; i < response.events.length; i++) {
-      console.log('*******DESCRIPTION', response.events[i].description.text);
-      console.log('**********NAME', response.events[i].name.text);
-      // var descrip = $("<p>").text(response.events[i].description.text);
-      // var name = $("<h1>").text(response.events[i].name.text);
-      var name = $("<h1>").text(response.events[i].name.text);
-      var descrip = $("<p>").text(response.events[i].description.text);
-      var start = $("<p>").text(response.events[i].start.local);
-      var summart = $("<p>").text(response.events[i].start.summary);
-      var address = $("<p>").text(response.events[i].venue.address.localized_address_display);
-      var venuename = $("<p>").text(response.events[i].venue.name);
-      $("#liveInformation").append(name, start, descrip,address,venuename);
-      // $('#output').text(response.events[1]);
-    }
+      console.log(response.events);
+      for (var i = 0; i < response.events.length; i++) {
+          var name = $("<h1>").text(response.events[i].name.text);
+          var descrip = $("<p>").text(response.events[i].description.text).addClass(
+              "center1 truncate");
+          descrip.attr('data-index', i);
+          var more = $('<button>').text('See More');
+          more.attr({
+              'data-index': i,
+              'data-more': false
+          });
+          var start = $("<p>").text(moment(response.events[i].start.local, 'YYYY-MM-DD')
+              .format("DD/MM/YY hh:mm A"));
+          var url = $("<a href>").text(response.events[i].url);
+          var address = $("<p>").text(response.events[i].venue.address
+              .localized_address_display);
+          $("#liveInformation").append(name, start, descrip, more, address);
+
+      }
+
+      //  Loop to show more button for each event
+
+      $("button").click(function () {
+          var index = $(this).data('index');
+          var isMore = $(this).data('more');
+          var descripText = $(".center1").eq(index);
+          if (isMore) {
+              descripText.addClass('truncate');
+              $(this).data('more', false);
+          } else {
+              descripText.removeClass('truncate');
+              $(this).data('more', true);
+          }
+
+      });
+
   })
+  
 }
 
 weather();
