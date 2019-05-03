@@ -90,9 +90,21 @@ body {
     clear: inherit;
 }
 
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .center1 {
+    text-align: justify;
+  }
+
 .commentBox {
     width: 960px;
 }
+
 
 
 
@@ -101,3 +113,4 @@ body {
     height: auto;
     margin: 5px;
 }
+
