@@ -104,3 +104,13 @@ body {
 .commentBox {
     width: 960px;
 }
+
+
+
+
+#recentReviews div.uk-card-secondary{
+    width: 30%;
+    height: auto;
+    margin: 5px;
+}
+
