@@ -3,7 +3,6 @@
  var owpKey = "276e65cee16932f5d1ff28e21441e141";
  var  queryURL= "https://api.openweathermap.org/data/2.5/forecast?q=Chicago,us&appid=" + owpKey;
 
-
 function toFahrenheit (kelvin){
     var tempeture = ((kelvin - 273.15) * (9/5) + 32).toFixed(2);
     return tempeture;
@@ -26,19 +25,17 @@ function toCelsius (kelvin){
      console.log(tempeture);
      console.log(toFahrenheit(tempeture));
      console.log(toCelsius(tempeture));
-     
    });
 //Weather Weather Map API code ends here
 
 function createElements (resName, resAddress, resLocality, resRating){
-var row =  $("<tr>");
-row.append($("<td>").text(resName));
-row.append($("<td>").text(resAddress));
-row.append($("<td>").text(resLocality));
-row.append($("<td>").text(resRating));
-$("#Zplaces").append(row);
+  var row =  $("<tr>");
+  row.append($("<td>").text(resName));
+  row.append($("<td>").text(resAddress));
+  row.append($("<td>").text(resLocality));
+  row.append($("<td>").text(resRating));
+  $("#Zplaces").append(row);
 }
-
 
 //Zoomato API Start
   var address = "201 E Randolph St, Chicago, IL 60602";
@@ -77,23 +74,23 @@ function callAPI(query, address, radius, count){
     method: "GET"
   })
     .then(function(Zresponse) {
-    console.log(Zresponse);
-    var restaurants = Zresponse.restaurants;
+      console.log(Zresponse);
+      var restaurants = Zresponse.restaurants;
 
-    for (var i = 0; i < restaurants.length; i++){
-      var resName = (restaurants[i].restaurant.name);
-      var resAddress = (restaurants[i].restaurant.location.address);
-      var resLocality = (restaurants[i].restaurant.location.locality);
-      var resRating;
-      var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
-      if ( aggregateRating == 0){
-        resRating =  restaurants[i].restaurant.user_rating.rating_text;
-      } else{
-        resRating = aggregateRating;
+      for (var i = 0; i < restaurants.length; i++){
+        var resName = (restaurants[i].restaurant.name);
+        var resAddress = (restaurants[i].restaurant.location.address);
+        var resLocality = (restaurants[i].restaurant.location.locality);
+        var resRating;
+        var aggregateRating = restaurants[i].restaurant.user_rating.aggregate_rating
+        if ( aggregateRating == 0){
+          resRating =  restaurants[i].restaurant.user_rating.rating_text;
+        } else{
+          resRating = aggregateRating;
+        }
+        createElements(resName, resAddress, resLocality, resRating);
       }
-      createElements(resName, resAddress, resLocality, resRating);
-    }
-    });
+  });
 }
 
 $("#loadMore").on("click", function(){
