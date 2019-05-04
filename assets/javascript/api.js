@@ -19,12 +19,7 @@ function toCelsius (kelvin){
    .then(function(response) {
      var cityInfo = response.city;
      var cityForcast = response.list; //This is were each 3 hour instance of up to 5 days stores it's data.
-     console.log(response);
-     console.log(cityInfo.name);
      var tempeture = cityForcast[0].main.temp
-     console.log(tempeture);
-     console.log(toFahrenheit(tempeture));
-     console.log(toCelsius(tempeture));
    });
 //Weather Weather Map API code ends here
 
@@ -47,13 +42,6 @@ $("#Zsubmit").on("click", function(){
   $("#Zplaces td").remove();
   $("#loadMore").show();
   query = $("#foodPref").val();
-  console.log("Address Input is: ")
-  console.log(address)
-  console.log("Food Pref is:")
-  console.log(query);
-  console.log("Miles preference is")
-  console.log(radius / 1609.34);
-  console.log(radius);
   foodValidate(query, address, radius, count);
 });
 
@@ -74,7 +62,6 @@ function callAPI(query, address, radius, count){
     method: "GET"
   })
     .then(function(Zresponse) {
-      console.log(Zresponse);
       var restaurants = Zresponse.restaurants;
 
       for (var i = 0; i < restaurants.length; i++){
@@ -104,8 +91,6 @@ $("#menuButtons").on("click","button#Zselection", function(){
   $("#Zplaces td").remove();
   $("#loadMore").show();
   query = $(this).attr("data-value");
-  console.log("HERERERERERER");
-  console.log(query);
   callAPI(query, address, radius, count);
 });
 //Zoomato API End
@@ -142,14 +127,8 @@ function UpdateCommentBox(dComment, dDate, dUser){
 
 function pushComment(dComment, dDate, dUser){
   var dUser = $("#userName").val();
-  console.log("The current userName is:")
-  console.log(dUser);
   var dComment = $("#userComment").val();
-  console.log("Current comment is:")
-  console.log(dComment);
   var dDate = moment().format("MM-DD-YYYY");
-  console.log("Current date is: ")
-  console.log(dDate);
   $("#userComment").val("");
   $("#userName").val("");
   database.ref().push({
@@ -164,9 +143,6 @@ function getComment(){
     var dComment = child.val().dComment;
     var dDate = child.val().dDate;
     var dUser = child.val().dUser;
-    console.log(dUser);
-    console.log(dComment);
-    console.log(dDate);
     UpdateCommentBox(dComment, dDate, dUser);
   });
 }
