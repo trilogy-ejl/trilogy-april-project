@@ -42,7 +42,7 @@ function events() {
           var descrip = $("<p>").text(response.events[i].description.text).addClass(
               "center1 truncate p1");
           descrip.attr('data-index', i);
-          var more = $('<button>').text('See More').addClass("p1");
+          var more = $('<button>').text('See More').addClass("p1 uk-button uk-button-secondary");
           more.attr({
               'data-index': i,
               'data-more': false
@@ -63,9 +63,11 @@ function events() {
           var isMore = $(this).data('more');
           var descripText = $(".center1").eq(index);
           if (isMore) {
+              $(this).text("See More")
               descripText.addClass('truncate');
               $(this).data('more', false);
           } else {
+             $(this).text("See Less")
               descripText.removeClass('truncate');
               $(this).data('more', true);
           }
